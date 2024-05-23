@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/navbar.html :: header( title = 'Inventario dispositivos')}"></head>
+<body>
+<div class="container">
+    <nav th:replace="~{fragments/navbar.html :: navbar( active = 'Dispositivo')}"></nav>
+    <h2>Inventario dispositivos</h2>
+    <a class="btn btn-primary mt-4 mb-4" th:href="@{'/Dispositivo/new'}">Nuevo dispositivo</a>
+    <div th:if="${msg != null}" th:text="${msg}" class="alert alert-success" role="alert"></div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Disponibles</th>
+            <th>editar</th>
+            <th>Borrar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="disp : ${listaDispositivos}">
+            <td th:text="${disp.getId()}"></td>
+            <td th:text="${disp.getNombre()}"></td>
+            <td th:text="${disp.getCantidad()}"></td>
+            <td th:text="${disp.getDisponibles()}"></td>
+            <td><a class="btn btn-primary" th:href="@{'/Dispositivo/edit' + '?id=' + ${employee.id}}">Editar</a>
+            </td>
+            <td><a class="btn btn-danger" th:href="@{'/Dispositivo/delete' + '?id=' + ${employee.id}}">Borrar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <hr/>
+
+</div>
+<script th:replace="~{fragments/navbar.html :: footer-bootstrap}"></script>
+</body>
+</html>
