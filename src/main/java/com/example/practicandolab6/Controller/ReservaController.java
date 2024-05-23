@@ -4,6 +4,7 @@ import com.example.practicandolab6.Repository.DispositivoRepository;
 import com.example.practicandolab6.Repository.PrestamoRepository;
 import com.example.practicandolab6.Repository.ReservaRepository;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -21,7 +22,8 @@ public class ReservaController {
         this.reservaRepository = reservaRepository;
     }
     @GetMapping("/verReserva")
-    public String verReserva(){
+    public String verReserva(Model model ){
+        //model.addAttribute("listaReservas" , );
         return "/Reservas/ReservasLista";
     }
 }
