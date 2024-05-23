@@ -63,7 +63,7 @@ public class DispositivoController {
                                             BindingResult bindingResult, RedirectAttributes attr){
         if(!bindingResult.hasErrors()) {
             dispositivoRepository.save(dispositivo);
-            return "redirect:/Dispositivos/verDispositivos";
+            return "redirect:/Dispositivo/verDispositivos";
         }else{
             System.out.println("HUBO ERRORES D:");
             return "/Dispositivos/editDispositivo";
